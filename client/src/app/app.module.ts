@@ -14,7 +14,8 @@ import { SDKBrowserModule } from "../shared/index"
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SDKBrowserModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

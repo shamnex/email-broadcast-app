@@ -23,8 +23,8 @@
     "relations": {
       "user": {
         "type": "belongsTo",
-        "model": "client",
-        "foreignKey": "clientId"
+        "model": "user",
+        "foreignKey": "userId"
       }
     }
   },
@@ -47,8 +47,12 @@
     "dataSource": "db",
     "public": true
   },
-  "client": {
+  "user": {
     "dataSource": "db",
+    "public": true
+  },
+  "container": {
+    "dataSource": "local-storage",
     "public": true
   }
 }

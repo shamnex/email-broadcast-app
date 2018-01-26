@@ -5,5 +5,11 @@
     "database": "mail-app",
     "name": "db",
     "connector": "mongodb"
+  },
+  "local-storage": {
+    "name": "local-storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./server/local-storage"
   }
 }

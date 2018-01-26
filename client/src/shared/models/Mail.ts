@@ -1,6 +1,6 @@
 /* tslint:disable */
 import {
-  Client
+  User
 } from '../index';
 
 declare var Object: any;
@@ -10,9 +10,9 @@ export interface MailInterface {
   "status": string;
   "date": Date;
   "id"?: any;
-  "clientId"?: any;
+  "userId"?: any;
   "senderId"?: any;
-  sender?: Client;
+  sender?: User;
 }
 
 export class Mail implements MailInterface {
@@ -21,9 +21,9 @@ export class Mail implements MailInterface {
   "status": string;
   "date": Date;
   "id": any;
-  "clientId": any;
+  "userId": any;
   "senderId": any;
-  sender: Client;
+  sender: User;
   constructor(data?: MailInterface) {
     Object.assign(this, data);
   }
@@ -78,8 +78,8 @@ export class Mail implements MailInterface {
           name: 'id',
           type: 'any'
         },
-        "clientId": {
-          name: 'clientId',
+        "userId": {
+          name: 'userId',
           type: 'any'
         },
         "senderId": {
@@ -90,8 +90,8 @@ export class Mail implements MailInterface {
       relations: {
         sender: {
           name: 'sender',
-          type: 'Client',
-          model: 'Client',
+          type: 'User',
+          model: 'User',
           relationType: 'belongsTo',
                   keyFrom: 'senderId',
           keyTo: 'id'

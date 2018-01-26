@@ -46,7 +46,8 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CookieBrowser } from './storage/cookie.browser';
 import { StorageBrowser } from './storage/storage.browser';
 import { MailApi } from './services/custom/Mail';
-import { ClientApi } from './services/custom/Client';
+import { UserApi } from './services/custom/User';
+import { ContainerApi } from './services/custom/Container';
 /**
 * @module SDKBrowserModule
 * @description
@@ -77,7 +78,8 @@ export class SDKBrowserModule {
         JSONSearchParams,
         SDKModels,
         MailApi,
-        ClientApi,
+        UserApi,
+        ContainerApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser }
       ]

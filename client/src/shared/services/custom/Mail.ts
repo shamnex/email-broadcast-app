@@ -11,7 +11,7 @@ import { ErrorHandler } from '../core/error.service';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Rx';
 import { Mail } from '../../models/Mail';
-import { Client } from '../../models/Client';
+import { User } from '../../models/User';
 
 
 /**

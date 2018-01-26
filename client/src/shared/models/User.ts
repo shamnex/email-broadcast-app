@@ -4,10 +4,11 @@ import {
 } from '../index';
 
 declare var Object: any;
-export interface ClientInterface {
+export interface UserInterface {
   "firstname": string;
   "lastname": string;
   "template": string;
+  "staff": string;
   "picture": string;
   "realm"?: string;
   "username"?: string;
@@ -19,10 +20,11 @@ export interface ClientInterface {
   proposals?: Mail[];
 }
 
-export class Client implements ClientInterface {
+export class User implements UserInterface {
   "firstname": string;
   "lastname": string;
   "template": string;
+  "staff": string;
   "picture": string;
   "realm": string;
   "username": string;
@@ -32,24 +34,24 @@ export class Client implements ClientInterface {
   "password": string;
   accessTokens: any[];
   proposals: Mail[];
-  constructor(data?: ClientInterface) {
+  constructor(data?: UserInterface) {
     Object.assign(this, data);
   }
   /**
    * The name of the model represented by this $resource,
-   * i.e. `Client`.
+   * i.e. `User`.
    */
   public static getModelName() {
-    return "Client";
+    return "User";
   }
   /**
   * @method factory
   * @author Jonathan Casarrubias
   * @license MIT
-  * This method creates an instance of Client for dynamic purposes.
+  * This method creates an instance of User for dynamic purposes.
   **/
-  public static factory(data: ClientInterface): Client{
-    return new Client(data);
+  public static factory(data: UserInterface): User{
+    return new User(data);
   }
   /**
   * @method getModelDefinition
@@ -60,9 +62,9 @@ export class Client implements ClientInterface {
   **/
   public static getModelDefinition() {
     return {
-      name: 'Client',
-      plural: 'Clients',
-      path: 'Clients',
+      name: 'User',
+      plural: 'Users',
+      path: 'Users',
       idName: 'id',
       properties: {
         "firstname": {
@@ -76,6 +78,11 @@ export class Client implements ClientInterface {
         "template": {
           name: 'template',
           type: 'string'
+        },
+        "staff": {
+          name: 'staff',
+          type: 'string',
+          default: 'staff'
         },
         "picture": {
           name: 'picture',
@@ -114,7 +121,7 @@ export class Client implements ClientInterface {
           model: '',
           relationType: 'hasMany',
                   keyFrom: 'id',
-          keyTo: 'clientId'
+          keyTo: 'userId'
         },
         proposals: {
           name: 'proposals',
@@ -122,7 +129,7 @@ export class Client implements ClientInterface {
           model: 'Mail',
           relationType: 'hasMany',
                   keyFrom: 'id',
-          keyTo: 'clientId'
+          keyTo: 'userId'
         },
       }
     }
